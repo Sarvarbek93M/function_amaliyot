@@ -2,7 +2,7 @@ let numberofnews;
 
 function startProject() {
   numberofnews = +prompt("Siz qancha yangilik kurdingiz ?");
-  numberofnews;
+
   while (numberofnews == "" || numberofnews == null || isNaN(numberofnews)) {
     numberofnews = +prompt("Siz qancha yangilik kurdingiz ?");
   }
@@ -14,7 +14,7 @@ const personalnewdb = {
   new: {},
   actors: {},
   genres: [],
-  private: false,
+  privat: false,
 };
 
 function rememberNew() {
@@ -44,4 +44,18 @@ function showpersonallevel() {
 }
 showpersonallevel();
 
-console.log(personalnewdb);
+function showMyDB(hidden) {
+  if (!hidden) {
+    console.log(personalnewdb);
+  }
+}
+
+showMyDB(personalnewdb.privat);
+
+function writeyourgenres() {
+  for (let i = 1; i <= 3; i++) {
+    personalnewdb.genres[i - 1] = prompt(`Sizning sevimli janringiz ${i}`);
+  }
+}
+
+writeyourgenres();
